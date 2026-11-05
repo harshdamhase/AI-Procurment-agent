@@ -1,0 +1,81 @@
+
+namespace DefaultPublisher;
+
+page 50708 "Purchase Request List"
+{
+    Caption = 'Purchase Requests';
+    PageType = List;
+    ApplicationArea = All;
+    UsageCategory = Lists;
+    SourceTable = "Purchase Request";
+    CardPageId = "Purchase Request Card";
+
+    layout
+    {
+        area(Content)
+        {
+            repeater(General)
+            {
+                field("Request No."; Rec."Request No.")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Item No."; Rec."Item No.")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Item Description"; Rec."Item Description")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Available Inventory"; Rec."Available Inventory")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Required Quantity"; Rec."Required Quantity")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Purchase Quantity"; Rec."Purchase Quantity")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Unit of Measure"; Rec."Unit of Measure")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Vendor No."; Rec."Vendor No.")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Vendor Name"; Rec."Vendor Name")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Estimated Amount"; Rec."Estimated Amount")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Request Date"; Rec."Request Date")
+                {
+                    ApplicationArea = All;
+                }
+
+                field(Status; Rec.Status)
+                {
+                    ApplicationArea = All;
+                }
+            }
+        }
+    }
+}
