@@ -1,0 +1,107 @@
+table 50708 "PO Agent Task"
+{
+    DataClassification = ToBeClassified;
+
+    fields
+    {
+        field(1; "Task ID"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(2; "Task Description"; Text[100])
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(3; "Item No"; Code[20])
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(4; "Item Description"; text[100])
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(5; "Available Inventory"; decimal)
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(6; "Required Quantity"; decimal)
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(7; "Suggested Purchase Quantity"; decimal)
+        {
+            dataclassification = tobeclassified;
+        }
+        field(8; "vendor No"; code[20])
+        {
+            Dataclassification = tobeclassified;
+
+        }
+        field(9; "Vendor Name"; text[100])
+        {
+            Dataclassification = tobeclassified;
+
+        }
+        field(10; "Status"; Enum "PO Agent Task Status")
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(11; "created DateTime"; DateTime)
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(12; "Reason"; text[200])
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(13; "Purchase Request No"; code[20])
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(14; "Purchase Order No"; code[20])
+        {
+            Dataclassification = tobeclassified;
+        }
+        field(15; "Error Message"; text[200])
+        {
+            Dataclassification = tobeclassified;
+        }
+    }
+    keys
+    {
+        key(Key1; "Task ID")
+        {
+            Clustered = true;
+        }
+    }
+
+    fieldgroups
+    {
+        // Add changes to field groups here
+    }
+
+    var
+        myInt: Integer;
+
+    trigger OnInsert()
+    begin
+
+    end;
+
+    trigger OnModify()
+    begin
+
+    end;
+
+    trigger OnDelete()
+    begin
+
+    end;
+
+    trigger OnRename()
+    begin
+
+    end;
+
+}
