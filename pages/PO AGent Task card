@@ -1,0 +1,105 @@
+page 50712 "PO Agent Task Card"
+{
+    PageType = Card;
+    ApplicationArea = All;
+    UsageCategory = Administration;
+    SourceTable = "PO Agent Task";
+    DataCaptionFields = "Task ID", "Task Description";
+
+    layout
+    {
+        area(Content)
+        {
+            group(General)
+            {
+                field("Task ID"; Rec."Task ID")
+                {
+
+                }
+                field("Task Description"; Rec."Task Description")
+                {
+
+                }
+                field(Status; Rec.Status)
+                {
+
+                }
+                field(Reason; Rec.Reason)
+                {
+
+                }
+                field("created DateTime"; Rec."created DateTime")
+                {
+
+                }
+                field("Purchase Order No"; Rec."Purchase Order No")
+                {
+
+                }
+                field("Purchase Request No"; Rec."Purchase Request No")
+                {
+
+                }
+                field("Error Message"; Rec."Error Message")
+                {
+
+                }
+            }
+            group(ItemDetails)
+            {
+                Caption = 'Item Details';
+                field("Item No"; Rec."Item No")
+                {
+
+                }
+                field("Item Description"; Rec."Item Description")
+                {
+
+                }
+                field("Available Inventory"; Rec."Available Inventory")
+                {
+
+                }
+                field("Required Quantity"; Rec."Required Quantity")
+                {
+
+                }
+                field("Suggested Purchase Quantity"; Rec."Suggested Purchase Quantity")
+                {
+
+                }
+            }
+            group(VendorDetails)
+            {
+                Caption = 'Vendor Details';
+                field("vendor No"; Rec."vendor No")
+                {
+
+                }
+                field("Vendor Name"; Rec."Vendor Name")
+                {
+
+                }
+
+            }
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(ActionName)
+            {
+
+                trigger OnAction()
+                begin
+
+                end;
+            }
+        }
+    }
+
+    var
+        myInt: Integer;
+}
