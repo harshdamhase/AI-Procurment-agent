@@ -1,0 +1,100 @@
+page 50710 "PO Agent Setup"
+{
+    PageType = Card;
+    ApplicationArea = All;
+    UsageCategory = Administration;
+    SourceTable = "PO Agent Setup";
+    caption = 'Purchase order Agent Setup';
+
+    layout
+    {
+        area(Content)
+        {
+            group(General)
+            {
+                field("Agent Name"; Rec."Agent Name")
+                {
+                    ApplicationArea = All;
+                }
+                field(Enabled; Rec.Enabled)
+                {
+                    ApplicationArea = All;
+                }
+            }
+            group(AIConfiguration)
+            {
+                caption = 'AI Configuration';
+
+                field("AI Provider"; Rec."AI provider")
+                {
+                    ApplicationArea = All;
+                }
+                field("Model Name"; Rec."Model Name")
+                {
+                    ApplicationArea = All;
+                }
+            }
+            group(ExecutionSettings)
+            {
+                caption = 'Execution Settings';
+
+                field("Polling Interval"; Rec."Polling Interval")
+                {
+                    ApplicationArea = All;
+                }
+                field("Require Approval"; Rec."Require Approval")
+                {
+                    ApplicationArea = All;
+                }
+                field(LastExecutionDateTime; Rec."Last Execution DateTime")
+                {
+                    ApplicationArea = All;
+                }
+            }
+
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action("Reset Configuration")
+            {
+                caption = 'Reset Configuration';
+                ApplicationArea = All;
+                promoted = true;
+                promotedCategory = process;
+                promotedOnly = true;
+                trigger OnAction()
+                begin
+                    if Confirm('Do you want to reset the agent configuration to default values?', false) then begin
+                        Rec."Agent Name" := 'My purchase order agent';
+                        Rec.Enabled := false;
+                        Rec."AI provider" := 'Ollama';
+                        Rec."Model Name" := 'Llama3.2';
+                        Rec."Polling Interval" := 5;
+                        Rec."Require Approval" := true;
+                        Rec."Last Execution DateTime" := 0DT;
+                        rec.Modify(true);
+
+                        Message('Agent configuration has been reset successfully.');
+                    end;
+                end;
+            }
+        }
+    }
+
+
+    trigger onOpenPage()
+    begin
+        if not Rec.Get('DEFAULT') then begin
+            Rec.Init();
+            Rec."Primary Key" := 'DEFAULT';
+            Rec.Insert(true);
+        end;
+    end;
+
+    var
+        myInt: Integer;
+}
